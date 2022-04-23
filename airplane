@@ -1,0 +1,73 @@
+    #include<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//structure for a square of the board 
+struct Square{  //structure that respresents squares on the board
+    int number;         //its number on the board
+   
+    struct Square *next;            //pointer to the next node
+
+};
+typedef struct Square square;
+
+//this function will create a square
+square *create_Square(int num) {
+    square *sq  = malloc(sizeof(square));   //allocate memory
+    sq->number=num;
+    sq->next= NULL;         //points to null because the new one is added to the end of the linkedlist
+    return sq;
+}
+
+//function to insert a square onto the board
+square *insertSquare(square *newSquare, square *head){
+    newSquare->next = head;            //pointing the new squares next to the head
+    return newSquare;                   //returning the pointer to the new square which will become the head
+}
+int main(){
+     square *head = NULL;   //pointer to the first node of the list
+     square *tempSquare;        //will be used as temporary structures for creating the ladders
+
+     //randomising the board
+    srand(time(0));
+    int upper = 64;      //setting the limits of the randomisation  
+    int lower = 32;    
+    int boardSize = (rand() % (upper-lower+1)) + lower;
+    int ladderOne = (rand() % (10-1+1)) + 1;
+    int ladderTwo =(rand() % (10-1+1)) + 1;
+
+     
+//creating the board
+    for (int i = 0; i <= boardSize; i++)
+    {
+            if(i==rand){
+                
+            }
+int main(){
+     square *head = NULL;   //pointer to the first node of the list
+     square *tempSquare;        //will be used as temporary structures for creating the ladders
+
+     //randomising the board
+    srand(time(0));
+    int upper = 64;      //setting the limits of the randomisation  
+    int lower = 32;    
+    int boardSize = (rand() % (upper-lower+1)) + lower;
+    int ladderOne = (rand() % (10-1+1)) + 1;
+    int ladderTwo =(rand() % (10-1+1)) + 1;
+
+     
+//creating the board
+    for (int i = 0; i <= boardSize; i++)
+    {
+            if(i==rand){
+                
+            }
+             tempSquare = create_Square(i);           //using a temporary square to create new squares
+             head = insertSquare(tempSquare,head);     //the head will equal the pointer of the newest square
+             
+        
+    }
+
+    printBoard(head);
+
+}
